@@ -1,12 +1,15 @@
-import React from 'react'
-import './Home.css'
+import React from "react";
+import Navbar  from '../components/Navbar'
+import Footer from '../components/Footer'
+import "./Home.css";
 
 const Home = () => {
   return (
-  <>
-   <h1>Francis</h1>
-  </>
-  )
-}
+    <>
+      <Navbar />
+      <Footer />
+    </>
+  );
+};
 
-export default Home
+export default Home;
