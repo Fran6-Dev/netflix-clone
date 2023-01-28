@@ -1,45 +1,58 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import './Banner.css'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import InfoIcon from '@mui/icons-material/Info';
-import axios from 'axios';
-import requests from '../config/Request';
-import { Movie } from '../typings';
+import React from "react";
+import { useState, useEffect } from "react";
+import "./Banner.css";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import InfoIcon from "@mui/icons-material/Info";
+import axios from "axios";
+import requests from "../config/Request";
+import { Movie } from "../typings";
 
-interface Props {
-    trendingNow: Movie[]
-}
+const Banner = () => {
+  const [movies, setMovies] = useState<Movie[] | null>([]);
 
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await axios.get(requests.fetchTrending);
+      setMovies(response.data.results);
+    };
+    fetchMovies();
+  }, []);
 
-const Banner = ({trendingNow} : Props) => {
-
-    const [movie, setMovie] = useState<Movie | null>(null);
-
-    useEffect(() => {
-            setMovie(
-                trendingNow[Math.floor(Math.random() * trendingNow.length)]
-            )
-    }, []);
-
-
-    console.log(movie)
-    
+  if (!movies) {
+    return <div>LOADING!!!</div>;
+  }
+  const randomMovie = movies[Math.floor(Math.random() * movies.length - 1)];
 
   return (
     <>
-    <header className='banner'>
+      <header
+        className="banner"
+        style={{
+          backgroundImage:
+            randomMovie &&
+            `url(https://image.tmdb.org/t/p/original${randomMovie.backdrop_path})`,
+          backgroundSize: "cover",
+        }}
+      >
         <div className="banner__content">
-            <h1 className='banner__title'>{movie?.name}</h1>
-            <p className='banner__description'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum veritatis neque commodi libero cum adipisci numquam quo aliquid optio molestias.</p>
-        <div className='banner__buttons'>
-            <button className='banner__button banner__button--white'><PlayArrowIcon/> Lecture</button>
-            <button className='banner__button'><InfoIcon/> Plus d'infos</button>
+          <h1 className="banner__title">
+            {randomMovie && (randomMovie.title ?? randomMovie.name)}
+          </h1>
+          <p className="banner__description">
+            {randomMovie && randomMovie.overview}
+          </p>
+          <div className="banner__buttons">
+            <button className="banner__button banner__button--white">
+              <PlayArrowIcon /> Lecture
+            </button>
+            <button className="banner__button">
+              <InfoIcon /> Plus d'infos
+            </button>
+          </div>
         </div>
-        </div>
-    </header>
+      </header>
     </>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;

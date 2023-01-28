@@ -1,22 +1,22 @@
 import React from "react";
-import Navbar  from '../components/Navbar'
-import Banner from '../components/Banner'
-import Footer from '../components/Footer'
-import axios from 'axios'
+import Navbar from "../components/Navbar";
+import Banner from "../components/Banner";
+import Footer from "../components/Footer";
+import axios from "axios";
 import requests from "../config/Request";
 import "./Home.css";
 import { Movie } from "../typings";
 
 interface Props {
-  trendingNow: Movie[]
+  trendingNow: Movie[];
 }
 
-const Home = ({trendingNow} : Props ) => {
-  console.log(trendingNow)
+const Home = ({ trendingNow }: Props) => {
+  console.log(trendingNow);
   return (
     <>
       <Navbar />
-      <Banner trendingNow={[]} />
+      <Banner />
       <Footer />
     </>
   );
@@ -24,10 +24,7 @@ const Home = ({trendingNow} : Props ) => {
 
 export default Home;
 
-
 export const getServerSideProps = async () => {
-  
-
   const [
     trendingNow,
     topRated,
@@ -45,9 +42,9 @@ export const getServerSideProps = async () => {
     axios.get(requests.fetchHorrorMovies).then((res) => res.data),
     axios.get(requests.fetchRomanceMovies).then((res) => res.data),
     axios.get(requests.fetchDocumentary).then((res) => res.data),
-  ])
+  ]);
 
-  console.log(trendingNow)
+  console.log(trendingNow);
 
   return {
     props: {
@@ -58,8 +55,6 @@ export const getServerSideProps = async () => {
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
       documentaries: documentary.results,
-    }
-  }
-  
-}
-
+    },
+  };
+};
