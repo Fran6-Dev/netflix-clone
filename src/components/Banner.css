@@ -52,12 +52,12 @@
 }
 
 .banner__button:hover {
-  background-color: rgba(110, 110, 110, 0.4);
+  background-color: rgba(110, 110, 110, 0.6);
 }
 
 .banner__button--white {
   background-color: white;
-  color: rgba(110, 110, 110, 0.7);
+  color: #000;
 }
 
 .banner__button--white:hover {

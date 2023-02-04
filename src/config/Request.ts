@@ -10,11 +10,11 @@ const requests = {
   fetchPopular: `${URL_BASE}movie/popular?api_key=${API_KEY}&language=en-US`,
   fetchTopRated: `${URL_BASE}movie/top_rated?api_key=${API_KEY}&language=en-US`,
   fetchUpcoming: `${URL_BASE}movie/upcoming?api_key=${API_KEY}&language=en-US`,
-  fetchActionMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&width_genres=28`,
-  fetchComedyMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&width_genres=35`,
-  fetchHorrorMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&width_genres=27`,
-  fetchRomanceMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&width_genres=10749`,
-  fetchDocumentary: `${URL_BASE}discover/movie?api_key=${API_KEY}&width_genres=99`,
+  fetchActionMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&language=en-US&with_genres=28`,
+  fetchComedyMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&language=en-US&with_genres=35`,
+  fetchHorrorMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&language=en-US&with_genres=27`,
+  fetchRomanceMovies: `${URL_BASE}discover/movie?api_key=${API_KEY}&language=en-US&with_genres=10749`,
+  fetchDocumentary: `${URL_BASE}discover/movie?api_key=${API_KEY}&language=en-US&with_genres=99`,
 };
 
 export default requests;

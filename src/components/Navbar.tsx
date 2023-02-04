@@ -36,9 +36,9 @@ const Navbar = () => {
         </button>
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="netflix" className='netflix-logo' />
         <nav className='nav__links'>
-            <a href="/" className='nav__link'>Accueil</a>
-            <a href="/" className='nav__link'>Series</a>
-            <a href="/" className='nav__link'>Films</a>
+            <a href="#" className='nav__link'>Accueil</a>
+            <a href="#" className='nav__link'>Series</a>
+            <a href="#" className='nav__link'>Films</a>
         </nav>
         <div className="nav__actions">
         <a href="#" className='nav__action'><SearchIcon/></a>

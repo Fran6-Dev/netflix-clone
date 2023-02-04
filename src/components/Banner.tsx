@@ -6,6 +6,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import axios from "axios";
 import requests from "../config/Request";
 import { Movie } from "../typings";
+import { grey } from "@mui/material/colors";
 
 const Banner = () => {
   const [movies, setMovies] = useState<Movie[] | null>([]);
@@ -45,10 +46,10 @@ const Banner = () => {
           </p>
           <div className="banner__buttons">
             <button className="banner__button banner__button--white">
-              <PlayArrowIcon /> Lecture
+              <PlayArrowIcon /> &nbsp;Lecture
             </button>
             <button className="banner__button">
-              <InfoIcon /> Plus d'infos
+              <InfoIcon /> &nbsp;Plus d'infos
             </button>
           </div>
         </div>
