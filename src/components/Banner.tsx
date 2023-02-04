@@ -23,6 +23,8 @@ const Banner = () => {
   }
   const randomMovie = movies[Math.floor(Math.random() * movies.length - 1)];
 
+
+
   return (
     <>
       <header

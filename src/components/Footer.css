@@ -1,7 +1,11 @@
+* {
+   
+}
+
 .footer {
-    position: absolute;
-    bottom: 0;
-    margin-left: 10%;
+    background-color: rgba(0, 0, 0, 0.400);
+    padding-left: 10%;
+    
 }
 
 a {
@@ -49,6 +53,8 @@ a {
 .footer__text {
     color: grey;
     font-size: 0.8rem;
+    margin: 0;
+    padding: 10px 0;
 }
 
 

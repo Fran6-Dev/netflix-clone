@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -6,14 +6,31 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
 const Navbar = () => {
     const [toggleButton, setToggleButton] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const handleClick = () => {
         setToggleButton(!toggleButton)
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+          if (window.scrollY > 0) {
+            setIsScrolled(true)
+          } else {
+            setIsScrolled(false)
+          }
+        }
+    
+        window.addEventListener('scroll', handleScroll)
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll)
+        }
+      }, [])
+
   return (
     <>
-    <div className={`nav ${toggleButton && "show"}`}>
+    <div className={`nav ${toggleButton && "show"} ${isScrolled && 'black'}`}>
         <button className='nav__burger' onClick={handleClick}>
             <MenuIcon/>
         </button>
@@ -24,8 +41,8 @@ const Navbar = () => {
             <a href="/" className='nav__link'>Films</a>
         </nav>
         <div className="nav__actions">
-        <a href="/" className='nav__action'><SearchIcon/></a>
-            <a href="/" className='nav__action'><NotificationsNoneIcon/></a>
+        <a href="#" className='nav__action'><SearchIcon/></a>
+            <a href="#" className='nav__action'><NotificationsNoneIcon/></a>
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png" alt="avatar" className='avatar_img nav__action'/>
         </div>
     </div>
