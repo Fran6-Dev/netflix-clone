@@ -36,6 +36,12 @@
     transition: transform 0.2s ease-in;
 }
 
+@media screen and (max-width: 768px) {
+    .row__image {
+        width: 250px;
+    }
+}
+
 .row__image:hover {
     transform: scale(1.1);
     cursor: pointer;

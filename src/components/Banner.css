@@ -49,6 +49,7 @@
   background-color: rgba(110, 110, 110, 0.7);
   border: 0;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .banner__button:hover {

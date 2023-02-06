@@ -35,6 +35,9 @@ const Banner = () => {
             randomMovie &&
             `url(https://image.tmdb.org/t/p/original${randomMovie.backdrop_path})`,
           backgroundSize: "cover",
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+
         }}
       >
         <div className="banner__content">
